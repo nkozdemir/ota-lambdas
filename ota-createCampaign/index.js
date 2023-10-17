@@ -112,6 +112,7 @@ exports.handler = async(event) => {
         }
 
         // perform insertion
+        const vinArray = vin_number.split(',');
         const query = 'INSERT INTO Campaigns SET ?'
         const insert = {
             campaign_name: campaign_name,
@@ -119,7 +120,7 @@ exports.handler = async(event) => {
             region_id: JSON.stringify(region_id),
             vehicle_sw_config_id: vehicle_sw_config_id,
             vehicle_id: vehicle_id,
-            vin_number: vin_number,
+            vin_number: JSON.stringify(vinArray),
             created_date: getCurrentDateTimeMySQLFormat()
         }
 
